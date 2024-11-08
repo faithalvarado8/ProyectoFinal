@@ -11,7 +11,7 @@ private:
 public:
     Nivel(int nivelSeleccionado);
     Jugador * jugador;
-
+    ~Nivel();
 };
 
 #endif // NIVEL_H
