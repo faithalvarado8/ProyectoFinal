@@ -10,18 +10,18 @@
 class Juego: public QGraphicsView{
     Q_OBJECT
 public:
-    QGraphicsScene * escena;
-    Nivel * nivel;
     Juego(QWidget * parent=nullptr);
     ~Juego();
 
-    void mostrarMenuInicio();
-    void iniciarNivel(int nivelSeleccionado);
-
 private:
+    QGraphicsScene * escena;
+    Nivel * nivel;
     QPushButton *botonNivel1;
     QPushButton *botonNivel2;
     QPushButton *botonNivel3;
+    
+    void mostrarMenuInicio();
+    void iniciarNivel(int nivelSeleccionado);
 
 private slots:
     void seleccionarNivel1();
