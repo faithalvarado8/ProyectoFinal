@@ -1,3 +1,3 @@
 #include "nivel.h"
 
-Nivel::Nivel() {}
+Nivel::Nivel(int nivelSeleccionado) {}
