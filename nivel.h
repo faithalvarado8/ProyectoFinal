@@ -9,7 +9,7 @@ private:
     unsigned int numNivel;
 
 public:
-    Nivel();
+    Nivel(int nivelSeleccionado);
     Jugador * jugador;
 
 };
