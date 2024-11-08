@@ -54,5 +54,10 @@ void Juego::iniciarNivel(int nivelSeleccionado) {
     // Limpiar la escena de los botones
     escena->clear();
 
+        // Eliminar cualquier nivel previamente creado
+    if (nivel) {
+        delete nivel;
+    }
+    
     nivel= new Nivel(nivelSeleccionado);
 }
