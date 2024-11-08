@@ -6,7 +6,7 @@
 class Nivel
 {
 private:
-    unsigned int numNivel;
+    int nivelSeleccionado;
 
 public:
     Nivel(int nivelSeleccionado);
