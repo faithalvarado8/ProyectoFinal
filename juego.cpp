@@ -34,43 +34,31 @@ void Juego::mostrarMenuInicio() {
     botonNivel2 = new QPushButton();
     botonNivel3 = new QPushButton();
 
-    // Configurar imagen en los botones
+    // Configurar el tamaño de los botones
+    botonNivel1->setFixedSize(215, 125);  // Ajusta el tamaño como prefieras
+    botonNivel2->setFixedSize(215, 125);
+    botonNivel3->setFixedSize(215, 125);
+
+    // Si usas iconos, ajusta también el tamaño de los iconos
     QPixmap iconoPixmapNivel1(":/fondos/Krusty.jpg");
-    QPixmap iconoPixmapNivel2(":/fondos/King Homer.png");
+    QPixmap iconoPixmapNivel2(":/fondos/KingHomero.jpg");
     QPixmap iconoPixmapNivel3(":/fondos/cementerio.jpg");
 
     botonNivel1->setIcon(iconoPixmapNivel1);
     botonNivel2->setIcon(iconoPixmapNivel2);
     botonNivel3->setIcon(iconoPixmapNivel3);
 
-    // Configurar tamaño de los botones y el tamaño del icono
-    botonNivel1->setIconSize(QSize(250, 100));
-    botonNivel2->setIconSize(QSize(250, 100));
-    botonNivel3->setIconSize(QSize(250, 100));
-
-    // Estilo de los botones con borde visible y espacio alrededor de la imagen
-    QString botonEstilo =
-        "QPushButton {"
-        "   border: 10px solid black;"        // Color y grosor del borde para pruebas
-        "   background-color: transparent;"   // Fondo transparente
-        "   border-radius: 20px;"             // Bordes redondeados
-
-        "}"
-        "QPushButton:hover {"
-        "   background-color: darkgray;"   // Fondo al pasar el mouse
-        "}";
-
-    botonNivel1->setStyleSheet(botonEstilo);
-    botonNivel2->setStyleSheet(botonEstilo);
-    botonNivel3->setStyleSheet(botonEstilo);
+    botonNivel1->setIconSize(QSize(185, 100));
+    botonNivel2->setIconSize(QSize(185, 100));
+    botonNivel3->setIconSize(QSize(185, 100));
 
     // Posicionar botones en la escena
     QGraphicsProxyWidget *botonWidget1 =escena->addWidget(botonNivel1);
-    botonWidget1->setPos(650, 160);
+    botonWidget1->setPos(650, 150);
     QGraphicsProxyWidget *botonWidget2 =escena->addWidget(botonNivel2);
     botonWidget2->setPos(650, 310);
     QGraphicsProxyWidget *botonWidget3 =escena->addWidget(botonNivel3);
-    botonWidget3->setPos(650, 460);
+    botonWidget3->setPos(650, 470);
 
     // Conectar botones a las funciones para seleccionar el nivel
     connect(botonNivel1, &QPushButton::clicked, this, &Juego::seleccionarNivel1);
@@ -91,5 +79,5 @@ void Juego::iniciarNivel(int nivelSeleccionado) {
         delete nivel;
     }
 
-    nivel= new Nivel(nivelSeleccionado);
+    nivel= new Nivel(nivelSeleccionado,escena);
 }
