@@ -2,7 +2,11 @@
 #define JUGADOR_H
 
 #include "personajes.h"
-#include <QString>
+#include <string>
+#include <QGraphicsPixmapItem>
+#include <QTimer>
+#include <QMap>
+
 using namespace std;
 
 class Jugador: public Personajes{
@@ -14,11 +18,15 @@ private:
     int alto;
     int columna;
     int fila;
+    QTimer *timer;
+
+    QMap<int,bool>keys;
 
 public:
-    explicit Jugador(QGraphicsItem * parent=nullptr, string nombre="0");
+    explicit Jugador(string nombre);
 
-    void keyPressEvent(QKeyEvent * event) override;
+    void keyPressEvent(QKeyEvent * event)override;
+    void keyReleaseEvent(QKeyEvent *event)override;
 
 private slots:
     void actualizarAnimacion();
