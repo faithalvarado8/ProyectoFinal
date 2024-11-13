@@ -18,16 +18,14 @@ Juego::Juego(QWidget * parent): QGraphicsView(parent), nivel(nullptr)
 }
 
 Juego::~Juego() {
-    delete nivel;
     delete escena;
+    delete nivel;
 }
 
 void Juego::mostrarMenuInicio() {
 
     // Poner fondo
-    QPixmap fondo(":/fondos/fondoInicio1.png");
-    QGraphicsPixmapItem* fondoItem = escena->addPixmap(fondo.scaled(1280, 720)); // Ajustar al tamaño de la escena
-    fondoItem->setZValue(-1); // Ponerlo detras de los botones
+    escena->setBackgroundBrush(QBrush(QImage(":/fondos/fondoInicio1.png").scaled(1280, 720)));
 
     // Crear botones para seleccionar el nivel
     botonNivel1 = new QPushButton();
@@ -70,7 +68,7 @@ void Juego::seleccionarNivel1() { iniciarNivel(1); }
 void Juego::seleccionarNivel2() { iniciarNivel(2); }
 void Juego::seleccionarNivel3() { iniciarNivel(3); }
 
-void Juego::iniciarNivel(int nivelSeleccionado) {
+void Juego::iniciarNivel(short int nivelSeleccionado) {
     // Limpiar la escena de los botones
     escena->clear();
 
