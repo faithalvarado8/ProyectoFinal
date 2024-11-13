@@ -19,9 +19,9 @@ private:
     QPushButton *botonNivel1;
     QPushButton *botonNivel2;
     QPushButton *botonNivel3;
-    
+
     void mostrarMenuInicio();
-    void iniciarNivel(int nivelSeleccionado);
+    void iniciarNivel(short int nivelSeleccionado);
 
 private slots:
     void seleccionarNivel1();
